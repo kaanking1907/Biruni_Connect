@@ -30,14 +30,14 @@ class PuanlarVeSiralamalarPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Image.asset(
-                'assets/images/puanlar_gorsel1.png', // 1. görsel yolu
+                'assets/images/puanlar.png', // 1. görsel yolu
                 fit: BoxFit.cover,
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Image.asset(
-                'assets/images/puanlar_gorsel2.png', // 2. görsel yolu
+                'assets/images/puanlar2.png', // 2. görsel yolu
                 fit: BoxFit.cover,
               ),
             ),

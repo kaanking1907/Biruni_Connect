@@ -1,7 +1,60 @@
 import 'package:flutter/material.dart';
 import 'package:biruni_connect/ham_menu.dart';
+import 'package:url_launcher/url_launcher.dart'; // URL açma işlemi için
 
 class OdemeSecenekleriPage extends StatelessWidget {
+  // URL açma fonksiyonu
+  Future<void> _openURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'URL açılamadı: $url';
+    }
+  }
+
+  // Fotoğraf widget'ı oluşturma fonksiyonu
+  Widget buildFacultySection({
+    required String title,
+    required String imagePath,
+  }) {
+    return Column(
+      children: [
+        Text(
+          title,
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
+          textAlign: TextAlign.center,
+        ),
+        SizedBox(height: 20),
+        GestureDetector(
+          onTap: () {
+            // İndirme URL'si (gerekirse düzenlenebilir)
+            _openURL('https://example.com/$imagePath');
+          },
+          child: Container(
+            margin: EdgeInsets.symmetric(horizontal: 20),
+            width: double.infinity,
+            height: 200,
+            decoration: BoxDecoration(
+              color: Colors.grey[300],
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(color: Colors.black12),
+            ),
+            child: Center(
+              child: Image.asset(
+                imagePath,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+        ),
+        SizedBox(height: 40),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,96 +80,42 @@ class OdemeSecenekleriPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: 20),
-            // Eğitim Fakültesi Bölümü
-            Text(
-              'Eğitim Fakültesi',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-              textAlign: TextAlign.center,
+
+            // Ödeme Seçenekleri Butonu
+            ElevatedButton(
+              onPressed: () {
+                _openURL('https://aday.biruni.edu.tr/odeme_secenekleri.html');
+              },
+              child: Text('Ödeme Seçenekleri'),
             ),
+
             SizedBox(height: 20),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 20),
-              width: double.infinity,
-              height: 200,
-              decoration: BoxDecoration(
-                color: Colors.grey[300],
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: Colors.black12),
-              ),
-              child: Center(
-                child: Text(
-                  'Fotoğraf Buraya Gelecek',
-                  style: TextStyle(
-                    color: Colors.black54,
-                    fontSize: 16,
-                  ),
-                ),
-              ),
+
+            // Fakülte Bölümleri
+            buildFacultySection(
+              title: 'Eğitim Fakültesi',
+              imagePath: 'assets/images/odeme_egitim.png',
             ),
-            SizedBox(height: 40),
-            // Mühendislik ve Doğa Bilimleri Fakültesi Bölümü
-            Text(
-              'Mühendislik ve Doğa Bilimleri Fakültesi',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-              textAlign: TextAlign.center,
+            buildFacultySection(
+              title: 'Mühendislik ve Doğa Bilimleri Fakültesi',
+              imagePath: 'assets/images/odeme_muh.png',
             ),
-            SizedBox(height: 20),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 20),
-              width: double.infinity,
-              height: 200,
-              decoration: BoxDecoration(
-                color: Colors.grey[300],
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: Colors.black12),
-              ),
-              child: Center(
-                child: Text(
-                  'Fotoğraf Buraya Gelecek',
-                  style: TextStyle(
-                    color: Colors.black54,
-                    fontSize: 16,
-                  ),
-                ),
-              ),
+            buildFacultySection(
+              title: 'Sağlık Bilimleri Fakültesi',
+              imagePath: 'assets/images/odeme_saglık.png',
             ),
-            SizedBox(height: 40),
-            // Sağlık Bilimleri Fakültesi Bölümü
-            Text(
-              'Sağlık Bilimleri Fakültesi',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-              textAlign: TextAlign.center,
+            buildFacultySection(
+              title: 'Tıp Fakültesi',
+              imagePath: 'assets/images/odeme_tip.png',
             ),
-            SizedBox(height: 20),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 20),
-              width: double.infinity,
-              height: 200,
-              decoration: BoxDecoration(
-                color: Colors.grey[300],
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: Colors.black12),
-              ),
-              child: Center(
-                child: Text(
-                  'Fotoğraf Buraya Gelecek',
-                  style: TextStyle(
-                    color: Colors.black54,
-                    fontSize: 16,
-                  ),
-                ),
-              ),
+            buildFacultySection(
+              title: 'Diş Hekimliği Fakültesi',
+              imagePath: 'assets/images/odeme_dis.png',
             ),
-            SizedBox(height: 20),
+            buildFacultySection(
+              title: 'Eczacılık Fakültesi',
+              imagePath: 'assets/images/odeme_ecza.png',
+            ),
           ],
         ),
       ),

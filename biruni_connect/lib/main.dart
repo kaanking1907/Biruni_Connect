@@ -81,7 +81,8 @@ class HomePage extends StatelessWidget {
               ],
             ),
             // TabBarView
-            Expanded(
+            Container(
+              height: 200.0,
               child: TabBarView(
                 children: [
                   _buildScrollableContent([

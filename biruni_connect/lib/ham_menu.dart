@@ -4,6 +4,7 @@ import 'ayarlar.dart';
 import 'SanalTur/sanal_tur.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'InfoButtons/akademik_takvim_page.dart';
+import 'kampus_rebher.dart';
 
 class HamburgerMenu extends StatefulWidget {
   const HamburgerMenu({super.key});
@@ -102,7 +103,7 @@ class _HamburgerMenuState extends State<HamburgerMenu> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => KampusRehberiPage()),
+                              builder: (context) => KampusRehberi()),
                         );
                         break;
                     }
@@ -121,7 +122,6 @@ class _HamburgerMenuState extends State<HamburgerMenu> {
               ],
             ),
           ),
-          // Başvuru ve Kayıt Butonu
           ListTile(
             title: const Text('Öğrenci Bilgi Sistemi',
                 style: TextStyle(fontSize: 16.0)),
@@ -132,6 +132,19 @@ class _HamburgerMenuState extends State<HamburgerMenu> {
               await launch(url);
               } else {
               throw 'URL açılamadı: $url';
+              }
+            },
+          ),
+          ListTile(
+            title: const Text('Kayıt Sistemi',
+                style: TextStyle(fontSize: 16.0)),
+            onTap: () async {
+              Navigator.pop(context); // Menüyü kapat
+              final url = 'https://malikayit.biruni.edu.tr';
+              if (await canLaunch(url)) {
+                await launch(url);
+              } else {
+                throw 'URL açılamadı: $url';
               }
             },
           ),
@@ -723,20 +736,6 @@ class Sanal extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SanalTur(),
-    );
-  }
-}
-
-class KampusRehberiPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Kampüs Rehberi'),
-      ),
-      body: const Center(
-        child: Text('Kampüs Rehberi İçeriği'),
-      ),
     );
   }
 }

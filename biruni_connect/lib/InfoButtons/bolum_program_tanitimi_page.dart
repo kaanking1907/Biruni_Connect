@@ -30,21 +30,21 @@ class BolumProgramTanitimPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            /*const Text(
               'Bölüm Program Tanıtımı',
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
               ),
-            ),
-            const SizedBox(height: 20),
-            const Text(
-              'Bu sayfada bölüm programı hakkında detaylı bilgiler yer alacaktır.',
+            ),*/
+            //const SizedBox(height: 20),
+            /*const Text(
+              '',
               style: TextStyle(
                 fontSize: 18,
                 height: 1.6,
               ),
-            ),
+            ),*/
             const SizedBox(height: 30),
             // 7 karelik kutu düzeni
             Expanded(

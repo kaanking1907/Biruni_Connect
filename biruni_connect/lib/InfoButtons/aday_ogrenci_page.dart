@@ -48,7 +48,7 @@ class AdayOgrenciPage extends StatelessWidget {
               case 0:
                 return _buildClickableImage(
                   context,
-                  'assets/images/aday_ogrenci.png',
+                  'assets/images/sikca_soru.png',
                   const SikcaSorulanPage(), // Sıkça Sorulan Sorular sayfasına yönlendir
                 );
               case 1:

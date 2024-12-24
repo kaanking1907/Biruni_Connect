@@ -9,7 +9,7 @@
         </intent>
     </queries>
     <application
-        android:label="flutterdersproje"
+        android:label="Biruni Connect"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

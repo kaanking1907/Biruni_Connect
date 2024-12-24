@@ -97,6 +97,14 @@ class HomePage extends StatelessWidget {
                       'text': 'Duyuru 3: Mezuniyet töreni detayları açıklandı!',
                       'image': 'assets/images/dyr3.png',
                     },
+                    {
+                      'text': 'Duyuru 3: Büyükelçi okulumuzu ziyaret etti.',
+                      'image': 'assets/images/dyr4.png',
+                    },
+                    {
+                      'text': 'Duyuru 3: Rusya sağlık devi Birunide',
+                      'image': 'assets/images/dyr5.png',
+                    },
                   ]),
                   _buildScrollableContent([
                     {
@@ -110,6 +118,10 @@ class HomePage extends StatelessWidget {
                     {
                       'text': 'Etkinlik 3: Spor Turnuvaları',
                       'image': 'assets/images/etkin3.png',
+                    },
+                    {
+                      'text': 'Etkinlik 3: Spor Turnuvaları',
+                      'image': 'assets/images/etkin4.png',
                     },
                   ]),
                   _buildScrollableContent([

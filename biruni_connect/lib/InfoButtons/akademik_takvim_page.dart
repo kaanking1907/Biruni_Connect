@@ -9,7 +9,7 @@ class AkademikTakvimPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Akademik Takvim'),
+        title: const Text('Akademik Takvim ve Programlar'),
         actions: [
           Builder(
             builder: (BuildContext context) {

@@ -63,8 +63,8 @@ class _HamburgerMenuState extends State<HamburgerMenu> {
                 ListTile(
                   title: Row(
                     children: [
-                      const Text('Kategori', style: TextStyle(fontSize: 16.0)),
-                      Spacer(),
+                      const Text('', style: TextStyle(fontSize: 16.0)),
+                      //Spacer(),
                       DropdownButton<String>(
                         value: _selectedCategory,
                         icon: const Icon(Icons.arrow_drop_down),

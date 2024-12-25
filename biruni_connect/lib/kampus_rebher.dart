@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'main.dart';
 import 'ham_menu.dart';
+import 'dart:math' show atan2, pi, sin, cos;
 
 void main() {
   runApp(KampusRehberi());
@@ -24,7 +25,7 @@ class LocationScreen extends StatefulWidget {
 
 class _LocationScreenState extends State<LocationScreen> {
   String _locationMessage = "Konum alınamadı";
-  List<String> _distances = [];
+  List<String> _distancesAndDirections = [];
   bool _isLoading = false;
 
   // Hedef konumlar (Enlem, Boylam)
@@ -57,14 +58,14 @@ class _LocationScreenState extends State<LocationScreen> {
 
     setState(() {
       _locationMessage = 'Enlem: ${position.latitude}, Boylam: ${position.longitude}';
-      _calculateDistances(position);
+      _calculateDistancesAndDirections(position);
       _isLoading = false;
     });
   }
 
-  // Hedef konumlarla arasındaki mesafeyi hesaplayan fonksiyon
-  void _calculateDistances(Position userPosition) {
-    List<String> distances = [];
+  // Hedef konumlarla mesafe ve yön hesaplayan fonksiyon
+  void _calculateDistancesAndDirections(Position userPosition) {
+    List<String> distancesAndDirections = [];
     for (var target in targetLocations) {
       double distance = Geolocator.distanceBetween(
         userPosition.latitude,
@@ -73,13 +74,30 @@ class _LocationScreenState extends State<LocationScreen> {
         target['longitude'],
       );
 
-      // Mesafeyi kilometre cinsinden iki ondalıklı basamağa yuvarla
-      distances.add(
-          '${target['name']}: ${(distance / 1000).toStringAsFixed(2)} km');
+      // Azimut açısını hesapla
+      double deltaLongitude = target['longitude'] - userPosition.longitude;
+      double y = sin(deltaLongitude * pi / 180) *
+          cos(target['latitude'] * pi / 180);
+      double x = cos(userPosition.latitude * pi / 180) *
+          sin(target['latitude'] * pi / 180) -
+          sin(userPosition.latitude * pi / 180) *
+              cos(target['latitude'] * pi / 180) *
+              cos(deltaLongitude * pi / 180);
+      double bearing = atan2(y, x) * 180 / pi;
+
+      // Açıyı 0-360 arasına normalize et
+      bearing = (bearing + 360) % 360;
+
+      // Kullanıcının doğrudan bakış açısına göre sağ/sol belirle
+      String direction = bearing > 180 ? "Solunda" : "Sağında";
+
+      // Mesafe ve yön bilgilerini ekle
+      distancesAndDirections.add(
+          '${target['name']}: ${(distance / 1000).toStringAsFixed(2)} km, $direction');
     }
 
     setState(() {
-      _distances = distances;
+      _distancesAndDirections = distancesAndDirections;
     });
   }
 
@@ -157,10 +175,10 @@ class _LocationScreenState extends State<LocationScreen> {
 
               SizedBox(height: 20),
 
-              // Mesafeler
-              if (_distances.isNotEmpty)
-                ..._distances.map((distance) => Text(
-                  distance,
+              // Mesafeler ve yön bilgisi
+              if (_distancesAndDirections.isNotEmpty)
+                ..._distancesAndDirections.map((info) => Text(
+                  info,
                   style: TextStyle(fontSize: 18),
                 )),
             ],

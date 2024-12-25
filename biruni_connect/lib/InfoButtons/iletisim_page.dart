@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:biruni_connect/ham_menu.dart';
 
 class IletisimDestekPage extends StatefulWidget {
   @override
@@ -42,7 +43,21 @@ class _IletisimDestekPageState extends State<IletisimDestekPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('İletişim ve Destek'),
+        actions: [
+          Builder(
+            builder: (BuildContext context) {
+              return IconButton(
+                icon: const Icon(Icons.menu),
+                onPressed: () {
+                  // Sağ taraftaki menüyü aç
+                  Scaffold.of(context).openEndDrawer();
+                },
+              );
+            },
+          ),
+        ],
       ),
+      endDrawer: const HamburgerMenu(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

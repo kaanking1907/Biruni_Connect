@@ -66,7 +66,7 @@ class KariyerMerkeziPage extends StatelessWidget {
             },
           ),
         ],
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.orange,
       ),
       endDrawer: const HamburgerMenu(),
       body: Padding(

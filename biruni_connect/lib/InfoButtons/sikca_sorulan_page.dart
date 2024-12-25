@@ -79,7 +79,7 @@ class _SSSPageState extends State<SikcaSorulanPage> {
             },
           ),
         ],
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.blue,
       ),
       endDrawer: const HamburgerMenu(),
       body: SingleChildScrollView(

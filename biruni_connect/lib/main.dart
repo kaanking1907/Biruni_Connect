@@ -204,7 +204,7 @@ class HomePage extends StatelessWidget {
                   _buildGridItem(
                     context,
                     'Sürekli Eğitim Uygulama Araştırma Merkezi',
-                    const Color.fromARGB(255, 233, 163, 58),
+                    const Color.fromARGB(255, 108, 184, 247),
                     'assets/images/merkezi.png',
                     '',
                     onTap: () {
@@ -219,7 +219,7 @@ class HomePage extends StatelessWidget {
                   _buildGridItem(
                     context,
                     'Kariyer Merkezi',
-                    Color.fromARGB(255, 68, 148, 233),
+                    Color.fromARGB(255, 233, 163, 58),
                     'assets/images/kariyer.png',
                     '',
                     onTap: () {
@@ -234,7 +234,7 @@ class HomePage extends StatelessWidget {
                   _buildGridItem(
                     context,
                     'Uluslararası',
-                    Color.fromARGB(255, 108, 184, 247),
+                    Color.fromARGB(255, 68, 148, 233),
                     'assets/images/uluslararasi.png',
                     '',
                     onTap: () {
@@ -249,7 +249,7 @@ class HomePage extends StatelessWidget {
                   _buildGridItem(
                     context,
                     'Sürdürülebilirlik',
-                    const Color.fromARGB(255, 68, 148, 233),
+                    const Color.fromARGB(255, 108, 184, 247),
                     'assets/images/sürdürülebilirlik.png',
                     '',
                     onTap: () {

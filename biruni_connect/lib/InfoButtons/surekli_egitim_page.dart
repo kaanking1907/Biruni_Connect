@@ -27,7 +27,7 @@ class SurekliEgitimPage extends StatelessWidget {
             },
           ),
         ],
-        backgroundColor: Color.fromARGB(255, 233, 163, 58),
+        backgroundColor: Color.fromARGB(255, 108, 184, 247),
       ),
       endDrawer: const HamburgerMenu(),
       body: SingleChildScrollView(

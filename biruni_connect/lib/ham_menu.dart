@@ -6,6 +6,7 @@ import 'InfoButtons/akademik_takvim_page.dart';
 import 'kampus_rebher.dart';
 import 'InfoButtons/about_page.dart';
 import 'main.dart';
+import 'InfoButtons/iletisim_page.dart';
 
 class HamburgerMenu extends StatefulWidget {
   const HamburgerMenu({super.key});
@@ -182,56 +183,6 @@ class _HamburgerMenuState extends State<HamburgerMenu> {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-class IletisimDestekPage extends StatelessWidget {
-  @override
-  _launchURL() async {
-    const url = 'https://www.google.com/maps/place/Biruni+%C3%9Cniversitesi/@41.0187784,28.9154234,16z/data=!4m6!3m5!1s0x14cabbb1ade07b4d:0x41372ea4b54356d2!8m2!3d41.0178922!4d28.9164256!16s%2Fg%2F1q5jpwm52?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Bu URL açılamadı: $url';
-    }
-  }
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('İletişim ve Destek'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              '🚩 Merkezefendi Mahallesi G/75 Sk. No: 1-13 Zeytinburnu/İstanbul',
-              style: TextStyle(fontSize: 16.0),
-            ),
-            const SizedBox(height: 8.0),
-            const Text(
-              '☎️ Telefon: 444 8 276 (BRN)',
-              style: TextStyle(fontSize: 16.0),
-            ),
-            const SizedBox(height: 8.0),
-            const Text(
-              '📞 Telefon: +90 212 416 46 46',
-              style: TextStyle(fontSize: 16.0),
-            ),
-            const SizedBox(height: 8.0),
-            const Text(
-              '📧 E-posta: biruniuniv@hs01.kep.tr',
-              style: TextStyle(fontSize: 16.0),
-            ),
-            const SizedBox(height: 8.0),
-            const Text(
-              '📧 E-posta: info@biruni.edu.tr',
-              style: TextStyle(fontSize: 16.0),
-            ),
-          ],
-        ),
       ),
     );
   }

@@ -143,18 +143,6 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-            /*const Padding(
-              padding: EdgeInsets.all(30.0),
-              child: Text(
-                'Alt kısımdaki bilgilendirici yazı buraya eklendi.',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16.0,
-                  color: Color.fromARGB(137, 0, 0, 0),
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),*/
             // Alt kısım bölmeler
             Expanded(
               child: GridView.count(

@@ -12,7 +12,7 @@
         </intent>
     </queries>
     <application
-        android:label="Biruni Connect"
+        android:label="1uni Connect"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

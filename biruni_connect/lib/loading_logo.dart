@@ -21,7 +21,7 @@ class _LoadingScreenState extends State<LoadingScreen>
         child: RotationTransition(
           turns: _controller,
           child: Image.asset(
-            'assets/images/logo.png', // Logonun yolu
+            'assets/1uni/1uni.png', // Logonun yolu
             width: 300,
             height: 300,
           ),

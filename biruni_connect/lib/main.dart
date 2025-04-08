@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
 import 'loading_logo.dart';
-import 'all_announcements_page.dart';
 import 'InfoButtons/erasmus_page.dart';
 import 'InfoButtons/tanitimfilmi_page.dart';
 import 'InfoButtons/aday_ogrenci_page.dart';
 import 'ham_menu.dart';
 import 'InfoButtons/akademik_takvim_page.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'InfoButtons/surdurulebilirlik_page.dart';
 import 'InfoButtons/surekli_egitim_page.dart';
 import 'InfoButtons/kariyer_merkezi_page.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const BiruniConnectApp());
+
+  await Supabase.initialize(
+    url: 'https://zgqbuohjddoxaqsatfjm.supabase.co',
+    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpncWJ1b2hqZGRveGFxc2F0ZmptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQwMzA2MTIsImV4cCI6MjA1OTYwNjYxMn0.G5-fRTvKKadf4crcjW1kpZJ_IZgaIf06U540qwulAGg',
+  );
 }
 
 class BiruniConnectApp extends StatelessWidget {
@@ -23,8 +27,8 @@ class BiruniConnectApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Biruni Connect',
-        home: LoadingScreen() // İlk olarak yükleme ekranı gösteriliyor
+        title: 'biruni Connect',
+        home: LoadingScreen()
     );
   }
 }
@@ -65,7 +69,7 @@ class HomePage extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: Center(
                 child: Image.asset(
-                  'assets/images/logo2.png', // Logonun yolu
+                  'assets/1uni/1uni_bilimin.png', // Logonun yolu
                   height: 100.0,
                 ),
               ),
@@ -75,9 +79,9 @@ class HomePage extends StatelessWidget {
               labelColor: Colors.black,
               indicatorColor: Colors.blue,
               tabs: [
+                Tab(text: 'Haberler'),
                 Tab(text: 'Duyurular'),
                 Tab(text: 'Etkinlikler'),
-                Tab(text: 'Haberler'),
               ],
             ),
             // TabBarView
@@ -88,11 +92,11 @@ class HomePage extends StatelessWidget {
                   _buildScrollableContent([
                     {
                       'text': 'Duyuru 1: Bahar dönemi kayıtları başladı!',
-                      'image': 'assets/images/dyr.png',
+                      'image': 'assets/1uni/25-26_Ogrenci_basvuru.png',
                     },
                     {
                       'text': 'Duyuru 2: Yeni etkinlikler takvimi yayınlandı!',
-                      'image': 'assets/images/dyr2.png',
+                      'image': 'assets/1uni/Tıp_akre_basari_toren.png',
                     },
                     {
                       'text': 'Duyuru 3: Mezuniyet töreni detayları açıklandı!',

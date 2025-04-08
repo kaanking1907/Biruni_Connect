@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'ayarlar.dart';
-import 'SanalTur/sanal_tur.dart';
 import 'InfoButtons/akademik_takvim_page.dart';
 import 'kampus_rebher.dart';
 import 'InfoButtons/about_page.dart';
 import 'main.dart';
 import 'InfoButtons/iletisim_page.dart';
+import 'AnketPage.dart';
 
 class HamburgerMenu extends StatefulWidget {
   const HamburgerMenu({super.key});
@@ -32,7 +32,7 @@ class _HamburgerMenuState extends State<HamburgerMenu> {
                     color: Colors.blue,
                   ),
                   child: Text(
-                    'Biruni Connect',
+                    '1üni Connect',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 24,
@@ -81,13 +81,6 @@ class _HamburgerMenuState extends State<HamburgerMenu> {
                             _selectedCategory = newValue!;
                           });
                           switch (newValue) {
-                            case 'Kampüs Hakkında':
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => KampusHakkindaPage()),
-                              );
-                              break;
                             case 'Sanal Tur':
                               Navigator.push(
                                 context,
@@ -153,6 +146,14 @@ class _HamburgerMenuState extends State<HamburgerMenu> {
                   },
                 ),
                 ListTile(
+                  title: const Text('Anketler'),
+                  onTap: (){
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => AnketPage()));
+                    },
+                ),
+                ListTile(
                   title: const Text('İletişim ve Destek'),
                   onTap: () {
                     Navigator.push(
@@ -177,7 +178,7 @@ class _HamburgerMenuState extends State<HamburgerMenu> {
           Container(
             padding: const EdgeInsets.all(8.0),
             child: Image.asset(
-              'assets/images/logo2.png', // Dosya yolunuza göre güncelleyin
+              'assets/1uni/1uni_bilimin.png', // Dosya yolunuza göre güncelleyin
               height: 100.0,
               fit: BoxFit.contain,
             ),

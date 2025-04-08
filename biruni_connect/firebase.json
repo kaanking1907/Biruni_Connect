@@ -1,0 +1,16 @@
+{
+  "anketler": {
+    "anket1": {
+      "soru": "Hangi etkinlikleri görmek istersiniz?",
+      "secenekler": ["Konser", "Spor Turnuvası"],
+      "aciklamalar": ["Konser açıklaması", "Spor açıklaması"],
+      "oylar": [10, 20]
+    },
+    "anket2": {
+      "soru": "Hangi hizmeti geliştirmemizi istersiniz?",
+      "secenekler": ["Kütüphane", "Yemekhane"],
+      "aciklamalar": ["Kütüphane açıklaması", "Yemekhane açıklaması"],
+      "oylar": [5, 15]
+    }
+  }
+}

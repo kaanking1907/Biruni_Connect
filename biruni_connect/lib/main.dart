@@ -15,8 +15,8 @@ void main() async {
   runApp(const BiruniConnectApp());
 
   await Supabase.initialize(
-    url: 'https://zgqbuohjddoxaqsatfjm.supabase.co',
-    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpncWJ1b2hqZGRveGFxc2F0ZmptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQwMzA2MTIsImV4cCI6MjA1OTYwNjYxMn0.G5-fRTvKKadf4crcjW1kpZJ_IZgaIf06U540qwulAGg',
+    url: 'url',
+    anonKey: 'anonkey',
   );
 }
 
